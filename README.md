@@ -1,2 +1,2 @@
-# Swiss politics 🥱
+# Swiss politics
 analyzing some stuff
