@@ -1,2 +1,2 @@
-# ch-politics
-analyzing some political stuff
+# Swiss politics 🥱
+analyzing some stuff
