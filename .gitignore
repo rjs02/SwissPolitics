@@ -1,0 +1,31 @@
+# Ignore all
+*
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
+#Result: Ignore only binaries (no extension)
+
+.vscode/
+
+.DS_Store
+*.out
+*~
+*.a
+*.aux
+*.dat
+*.log
+*.o
+*.out
+*.synctex.gz
+*.pyc
+build/
+install/
+*.swp
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
