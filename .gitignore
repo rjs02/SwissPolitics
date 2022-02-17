@@ -4,7 +4,10 @@
 !*.*
 # Unignore all dirs
 !*/
-#Result: Ignore only binaries (no extension)
+# Unignore Makefile (also no extension)
+!Makefile 
+# Result: Ignore only binaries (no extension)
+
 
 .vscode/
 
