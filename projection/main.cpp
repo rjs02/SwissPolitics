@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <iomanip>
 #include <Eigen/Dense>
 
 #include "loadCSV.hpp"
@@ -29,13 +30,14 @@ int main() {
 
     // Output
     i = 0;
-    std::cout << "---------------\n\n"
+    std::cout << "---------------------------------------------\n\n"
               << "Comparing " << parties[ind] << " to:\n";
+    std::cout << std::setprecision(4);
     for(auto x : scores) {
-        std::cout << parties[i++] << ":   " << x << "\n";
+        std::cout << std::fixed
+                  << std::setw(7) << parties[i++] << ": " 
+                  << std::setw(8) << x << "\n";
     }
-
-
 
     return 0;
 }
