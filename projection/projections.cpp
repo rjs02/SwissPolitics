@@ -10,7 +10,12 @@ void computeScore(const Eigen::MatrixXi &M, Eigen::VectorXd &res, unsigned int i
     for(unsigned int i = 0; i < n; ++i) {
         result(i) = cmp.dot(M.col(i).cast<double>());
     }
-    result /= result(index); // norm the results to interval [-1, 1]
+    
+    // norm the results to interval [-1, 1]
+    result /= result(index); 
+    // transform [-1, 1] to [0, 1]
+    result += Eigen::VectorXd::Ones(n);
+    result /= 2.;
 
     res = result;
 }
