@@ -4,7 +4,7 @@
 #include <Eigen/Dense>
 
 #include "loadCSV.hpp"
-
+#include "projections.hpp"
 
 int main() {
 
@@ -16,15 +16,26 @@ int main() {
     
     load_csv(path, parolen, votes, parties);
     
-    // test output
-    for(auto x : parties) {
-        std::cout << x << " ";
+    unsigned int i = 0, ind;
+    std::cout << "| ";
+    for(auto &s : parties) {
+        std::cout << i++ << " " << s << " | ";
     }
-    std::cout << "\n";
-    std::cout << parolen << "\n";
-    for(auto x : votes) {
-        std::cout << x.date << "  " << x.name << "\n";
-    } 
-    
+    std::cout << "\nEnter index to compute score by projection: ";
+    std::cin >> ind;
+
+    Eigen::VectorXd scores;
+    computeScore(parolen, scores, ind);
+
+    // Output
+    i = 0;
+    std::cout << "---------------\n\n"
+              << "Comparing " << parties[ind] << " to:\n";
+    for(auto x : scores) {
+        std::cout << parties[i++] << ":   " << x << "\n";
+    }
+
+
+
     return 0;
 }
