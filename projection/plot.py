@@ -100,31 +100,39 @@ def radar_factory(num_vars, frame='circle'):
     register_projection(RadarAxes)
     return theta
 
+def generatePlot(data):
 
-data = [['Sulfate', 'Nitrate', 'EC', 'OC1', 'OC2', 'OC3', 'OP', 'CO', 'O3'],
-        ('Title', [
-            [0.88, 0.01, 0.03, 0.03, 0.00, 0.06, 0.01, 0.00, 0.00],
-            [0.07, 0.95, 0.04, 0.05, 0.00, 0.02, 0.01, 0.00, 0.00],
-            [0.01, 0.02, 0.85, 0.19, 0.05, 0.10, 0.00, 0.00, 0.00],
-            [0.02, 0.01, 0.07, 0.01, 0.21, 0.12, 0.98, 0.00, 0.00],
-            [0.01, 0.01, 0.02, 0.71, 0.74, 0.70, 0.00, 0.00, 0.00]])]
+    N = len(data[0])
+    theta = radar_factory(N, frame='polygon')
 
-N = len(data[0])
-theta = radar_factory(N, frame='polygon')
+    spoke_labels = data.pop(0)
+    title, case_data = data[0]
 
-spoke_labels = data.pop(0)
-title, case_data = data[0]
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(projection='radar'))
+    fig.subplots_adjust(top=0.85, bottom=0.05)
 
-fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(projection='radar'))
-fig.subplots_adjust(top=0.85, bottom=0.05)
+    ax.set_rgrids([0.2, 0.4, 0.6, 0.8])
+    ax.set_title(title,  position=(0.5, 1.1), ha='center')
 
-ax.set_rgrids([0.2, 0.4, 0.6, 0.8])
-ax.set_title(title,  position=(0.5, 1.1), ha='center')
+    for d in case_data:
+        line = ax.plot(theta, d)
+        ax.fill(theta, d,  alpha=0.25)
+    ax.set_varlabels(spoke_labels)
 
-for d in case_data:
-    line = ax.plot(theta, d)
-    ax.fill(theta, d,  alpha=0.25)
-ax.set_varlabels(spoke_labels)
+    #plt.show()
+    plt.savefig("plot.png")
 
-#plt.show()
-plt.savefig("plot.png")
+
+def main():
+    data = [['SP', 'GLP', 'Mitte', 'FDP', 'SVP', 'LP', 'Piraten', 'Grüne'],
+            ('TITLE $\int_{-\infty}^{\infty}\sin^2(3x)dx$', [
+                [0.88, 0.01, 0.03, 0.03, 0.00, 0.06, 0.01, 0.00],
+                [0.07, 0.95, 0.04, 0.05, 0.00, 0.02, 0.01, 0.00],
+                [0.01, 0.02, 0.85, 0.19, 0.05, 0.10, 0.00, 0.00],
+                [0.02, 0.01, 0.07, 0.01, 0.21, 0.12, 0.98, 0.00],
+                [0.01, 0.01, 0.02, 0.71, 0.74, 0.70, 0.00, 0.00]])]
+
+    generatePlot(data)
+
+if __name__ == '__main__':
+    main()
