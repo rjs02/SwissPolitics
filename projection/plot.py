@@ -112,18 +112,25 @@ def generatePlot(data):
     fig.subplots_adjust(top=0.85, bottom=0.05)
 
     ax.set_rgrids([0.2, 0.4, 0.6, 0.8])
+    #ax.set_rgrids([0.25, 0.5, 0.75])
     ax.set_title(title,  position=(0.5, 1.1), ha='center')
 
     for d in case_data:
-        line = ax.plot(theta, d)
+        line = ax.plot(theta, d) # add label here for legend
         ax.fill(theta, d,  alpha=0.25)
     ax.set_varlabels(spoke_labels)
 
     #plt.show()
+    #plt.legend()
     plt.savefig("plot.png")
 
 
 def main():
+    parties = ["Result", "SP", "Gruene", "EVP", "GLP", "Mitte", "FDP", "SVP", "EDU", "Piraten", "PdA", "LP"]
+    
+    data = [parties, (parties[4], [[0.6957, 0.7826, 0.7826, 0.6739, 1.0000, 0.7174, 0.5652, 0.3696, 0.4565, 0.7391, 0.6957, 0.4783]])]
+
+    """
     data = [['SP', 'GLP', 'Mitte', 'FDP', 'SVP', 'LP', 'Piraten', 'Grüne'],
             ('TITLE $\int_{-\infty}^{\infty}\sin^2(3x)dx$', [
                 [0.88, 0.01, 0.03, 0.03, 0.00, 0.06, 0.01, 0.00],
@@ -131,6 +138,7 @@ def main():
                 [0.01, 0.02, 0.85, 0.19, 0.05, 0.10, 0.00, 0.00],
                 [0.02, 0.01, 0.07, 0.01, 0.21, 0.12, 0.98, 0.00],
                 [0.01, 0.01, 0.02, 0.71, 0.74, 0.70, 0.00, 0.00]])]
+    """
 
     generatePlot(data)
 
