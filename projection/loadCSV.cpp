@@ -1,5 +1,4 @@
 #include "loadCSV.hpp"
-
 #include <iostream>
 
 // adapted from https://stackoverflow.com/questions/34247057/how-to-read-csv-file-and-assign-to-eigen-matrix
@@ -40,10 +39,9 @@ void load_csv (const std::string &path, Eigen::MatrixXi &parolen, std::vector<Vo
         ++rows;
     }
 
-    // delete '\n' at end of string of last party
+    // delete '\n' or CR (ASCII 13) at end of string of last party
     std::string s = parties[parties.size()-1];
-    if (!s.empty() && s[s.length()-1] == '\n') {
-        std::cout << "del newline\n";
+    if (!s.empty() && (s[s.length()-1] == '\n' || s[s.length()-1] == (char)13)) {
         s.erase(s.length()-1);
     }
     parties[parties.size()-1] = s;
