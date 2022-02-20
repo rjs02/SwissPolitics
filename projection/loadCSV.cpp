@@ -11,17 +11,18 @@ void load_csv (const std::string &path, Eigen::MatrixXi &parolen, std::vector<Vo
     std::vector<Vote> votes; // store name and date of each vote
     std::vector<std::string> parties;
     unsigned rows = 0;
+    const char delim = ',';
 
     // parse first row of csv (header)
     // throw away first two cols of first row
     std::getline(in, line);
     std::stringstream lineStream(line);
-    std::getline(lineStream, cell, ';');
-    std::getline(lineStream, cell, ';');
+    std::getline(lineStream, cell, delim);
+    std::getline(lineStream, cell, delim);
 
     // read in parties
     // result of a vote is treated like a party
-    while(std::getline(lineStream, cell, ';')) {
+    while(std::getline(lineStream, cell, delim)) {
         parties.push_back(cell);
     }
 
@@ -29,11 +30,11 @@ void load_csv (const std::string &path, Eigen::MatrixXi &parolen, std::vector<Vo
     while (std::getline(in, line)) {
         std::stringstream lineStream(line);
         std::string date, name;
-        std::getline(lineStream, date, ';'); 
-        std::getline(lineStream, name, ';'); 
+        std::getline(lineStream, date, delim); 
+        std::getline(lineStream, name, delim); 
         votes.emplace_back(Vote(name, date));    // add first two entries two votes vector
         
-        while (std::getline(lineStream, cell, ';')) {
+        while (std::getline(lineStream, cell, delim)) {
             values.push_back(std::stoi(cell));
         }
         ++rows;
