@@ -63,10 +63,9 @@ int main(int argc, char *argv[]) {
     out << "\n";
 
     // compute and output results
-    out << std::setprecision(4);
+    out << std::setprecision(4) << std::fixed;
     for(unsigned int i = 0; i < n; ++i) {
         computeScore(parolen, scores,i);
-        std::cout << "computed for " << i << "\n";
         for(unsigned int j = 0; j < n; ++j) {
             out << scores(j);
             if(j != n-1) out << ", ";
