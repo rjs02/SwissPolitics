@@ -122,8 +122,8 @@ def generatePlot(data):
     fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(projection='radar'))
     fig.subplots_adjust(top=0.85, bottom=0.05)
 
-    ax.set_rgrids([0.2, 0.4, 0.6, 0.8])
-    #ax.set_rgrids([0.25, 0.5, 0.75])
+    plt.ylim([0,1])
+    ax.set_rgrids([0.25, 0.5, 0.75])
     ax.set_title(title,  position=(0.5, 1.1), ha='center')
 
     for d in case_data:
