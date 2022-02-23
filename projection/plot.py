@@ -1,5 +1,4 @@
 # code from https://stackoverflow.com/questions/52910187/how-to-make-a-polygon-radar-spider-chart-in-python
-# user: ImportanceOfBeingErnest
 
 import numpy as np
 
@@ -27,10 +26,21 @@ def radar_factory(num_vars, frame='circle'):
     """
     # calculate evenly-spaced axis angles
     theta = np.linspace(0, 2*np.pi, num_vars, endpoint=False)
+    
+    class RadarTransform(PolarAxes.PolarTransform):
+        def transform_path_non_affine(self, path):
+            # Paths with non-unit interpolation steps correspond to gridlines,
+            # in which case we force interpolation (to defeat PolarTransform's
+            # autoconversion to circular arcs).
+            if path._interpolation_steps > 1:
+                path = path.interpolated(num_vars)
+            return Path(self.transform(path.vertices), path.codes)
 
     class RadarAxes(PolarAxes):
 
         name = 'radar'
+        
+        PolarTransform = RadarTransform
 
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
@@ -102,6 +112,7 @@ def radar_factory(num_vars, frame='circle'):
 
 def generatePlot(data):
 
+    filename = data[1][0] + ".png"
     N = len(data[0])
     theta = radar_factory(N, frame='polygon')
 
@@ -122,13 +133,16 @@ def generatePlot(data):
 
     #plt.show()
     #plt.legend()
-    plt.savefig("plot.png")
+    
+    plt.savefig(filename)
 
 
 def main():
     parties = ["Result", "SP", "Gruene", "EVP", "GLP", "Mitte", "FDP", "SVP", "EDU", "Piraten", "PdA", "LP"]
     
-    data = [parties, (parties[4], [[0.6957, 0.7826, 0.7826, 0.6739, 1.0000, 0.7174, 0.5652, 0.3696, 0.4565, 0.7391, 0.6957, 0.4783]])]
+    result = [parties[1:], (parties[0], [[0.5385, 0.5385, 0.5769, 0.7115, 0.7115, 0.6538, 0.5962, 0.6346, 0.5577, 0.6154, 0.5385]])]
+    glp = [parties, (parties[4], [[0.72, 0.76, 0.76, 0.68, 1.00, 0.74, 0.60, 0.38, 0.46, 0.74, 0.68, 0.48]])]
+    
 
     """
     data = [['SP', 'GLP', 'Mitte', 'FDP', 'SVP', 'LP', 'Piraten', 'Grüne'],
@@ -140,7 +154,8 @@ def main():
                 [0.01, 0.01, 0.02, 0.71, 0.74, 0.70, 0.00, 0.00]])]
     """
 
-    generatePlot(data)
+    generatePlot(glp)
+    generatePlot(result)
 
 if __name__ == '__main__':
     main()
