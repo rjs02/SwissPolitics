@@ -1,6 +1,7 @@
 # code from https://stackoverflow.com/questions/52910187/how-to-make-a-polygon-radar-spider-chart-in-python
 
 import numpy as np
+import csv
 
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, RegularPolygon
@@ -112,7 +113,7 @@ def radar_factory(num_vars, frame='circle'):
 
 def generatePlot(data):
 
-    filename = data[1][0] + ".png"
+    filename = "img/" + data[1][0] + ".png"
     N = len(data[0])
     theta = radar_factory(N, frame='polygon')
 
@@ -130,21 +131,36 @@ def generatePlot(data):
         line = ax.plot(theta, d) # add label here for legend
         ax.fill(theta, d,  alpha=0.25)
     ax.set_varlabels(spoke_labels)
-
-    #plt.show()
-    #plt.legend()
     
     plt.savefig(filename)
 
+def openCSV(file):
+    """ read csv file to a list """
+    with open(file, newline='') as f:
+        reader = csv.reader(f)
+        data = list(reader)
+    return data
+
 
 def main():
-    parties = ["Result", "SP", "Gruene", "EVP", "GLP", "Mitte", "FDP", "SVP", "EDU", "Piraten", "PdA", "LP"]
-    
-    result = [parties[1:], (parties[0], [[0.5385, 0.5385, 0.5769, 0.7115, 0.7115, 0.6538, 0.5962, 0.6346, 0.5577, 0.6154, 0.5385]])]
-    glp = [parties, (parties[4], [[0.72, 0.76, 0.76, 0.68, 1.00, 0.74, 0.60, 0.38, 0.46, 0.74, 0.68, 0.48]])]
-    
+    data = openCSV("result.csv")
+    parties = data.pop(0)
+
+    #convert entries from string to float
+    for i in range(0, len(data)):
+        data[i] = list(map(float, data[i]))
+    print(parties)
+    print(data)
+
+    # generate plots for all parties
+    for i in range(len(data)):
+        print("Generating for", parties[i])
+        arg = [parties[0:i]+parties[i+1:], (parties[i], [data[i][0:i]+data[i][i+1:]])]
+        generatePlot(arg)
+
 
     """
+    # structure for multiple graphs on a plot:
     data = [['SP', 'GLP', 'Mitte', 'FDP', 'SVP', 'LP', 'Piraten', 'Grüne'],
             ('TITLE $\int_{-\infty}^{\infty}\sin^2(3x)dx$', [
                 [0.88, 0.01, 0.03, 0.03, 0.00, 0.06, 0.01, 0.00],
@@ -153,9 +169,6 @@ def main():
                 [0.02, 0.01, 0.07, 0.01, 0.21, 0.12, 0.98, 0.00],
                 [0.01, 0.01, 0.02, 0.71, 0.74, 0.70, 0.00, 0.00]])]
     """
-
-    generatePlot(glp)
-    generatePlot(result)
 
 if __name__ == '__main__':
     main()
