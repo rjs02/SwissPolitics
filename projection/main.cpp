@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
         computeScore(parolen, scores,i);
         for(unsigned int j = 0; j < n; ++j) {
             out << scores(j);
-            if(j != n-1) out << ", ";
+            if(j != n-1) out << ",";
         }
         if(i != n-1) out << "\n";
     }
