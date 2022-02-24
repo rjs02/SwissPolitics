@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     unsigned int n = parties.size();
     for(unsigned int i = 0; i < n; ++i) {
         out << parties[i];
-        if(i != n-1) out << ", ";
+        if(i != n-1) out << ",";
     }
     out << "\n";
 
