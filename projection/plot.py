@@ -111,9 +111,9 @@ def radar_factory(num_vars, frame='circle'):
     register_projection(RadarAxes)
     return theta
 
-def generatePlot(data):
-
-    filename = "img/" + data[1][0] + ".png"
+def generatePlot(data, colors):
+    name = data[1][0]
+    filename = "img/" + name + ".png"
     N = len(data[0])
     theta = radar_factory(N, frame='polygon')
 
@@ -128,8 +128,8 @@ def generatePlot(data):
     ax.set_title(title,  position=(0.5, 1.1), ha='center')
 
     for d in case_data:
-        line = ax.plot(theta, d) # add label here for legend
-        ax.fill(theta, d,  alpha=0.25)
+        line = ax.plot(theta, d, color=colors[name]) # add label here for legend
+        ax.fill(theta, d,  alpha=0.4, color=colors[name])
     ax.set_varlabels(spoke_labels)
     
     plt.savefig(filename)
@@ -145,18 +145,24 @@ def openCSV(file):
 def main():
     data = openCSV("result.csv")
     parties = data.pop(0)
-
+    
+    # different colors for each party
+    colorcodes = ["#878784", "#E30613", "#E53136", "#84B414", "#F9B200", "#0060AD", "#9AC31C", "#F5AE40", "#0E52A0", "#FFD200", "#E6222D", "#329F4F", "#878784"]
+    colors = {parties [i] : colorcodes[i] for i in range(len(parties))}
+    #print(colors)
+    
+    
     #convert entries from string to float
     for i in range(0, len(data)):
         data[i] = list(map(float, data[i]))
-    print(parties)
-    print(data)
+    # print(parties)
+    # print(data)
 
     # generate plots for all parties
     for i in range(len(data)):
         print("Generating for", parties[i])
         arg = [parties[0:i]+parties[i+1:], (parties[i], [data[i][0:i]+data[i][i+1:]])]
-        generatePlot(arg)
+        generatePlot(arg, colors)
 
 
     """
