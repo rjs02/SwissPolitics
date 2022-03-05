@@ -1,27 +1,27 @@
-Date,Name,Result,SP,Gruene,EVP,GLP,Mitte,FDP,SVP,EDU,Piraten,PdA,LP
-2020-02-09,Initiative Mehr bezahlbare Wohnungen,-1,1,1,-1,-1,-1,-1,-1,-1,0,1,-1
-2020-02-09,Verbot Diskriminierung wegen sexueller Orientierung,1,1,1,0,1,1,1,-1,-1,1,1,-1
-2020-09-27,Begrenzungsinitiative,-1,-1,-1,-1,-1,-1,-1,1,1,-1,-1,-1
-2020-09-27,Jagdgesetz,-1,-1,-1,-1,-1,1,1,1,1,-1,-1,0
-2020-09-27,Kinderbetreuungskosten Bundessteuer,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,0
-2020-09-27,Vaterschaftsurlaub,1,1,1,1,1,1,-1,-1,-1,1,1,-1
-2020-09-27,Kampfjets,1,-1,-1,1,1,1,1,1,1,-1,-1,1
-2020-11-29,Konzernverantwortungsinitiative,-1,1,1,1,1,-1,-1,-1,1,1,1,-1
-2020-11-29,Kriegsgeschaeftsinitiative,-1,1,1,1,-1,-1,-1,-1,-1,1,1,-1
-2021-03-07,Verhuellungsverbot,1,-1,-1,0,-1,-1,-1,1,1,-1,-1,-1
-2021-03-07,Bundesgesetz E-ID,-1,-1,-1,1,-1,1,1,1,-1,-1,-1,1
-2021-03-07,Freihandelsabkommen Indonesien,1,-1,-1,-1,1,1,1,1,1,0,-1,1
-2021-06-13,CO2-Gesetz,-1,1,1,1,1,1,1,-1,-1,1,-1,-1
-2021-06-13,Covid-19-Gesetz,1,1,1,1,1,1,1,0,-1,1,1,-1
-2021-06-13,Trinkwasserinitiative,-1,1,1,1,1,-1,-1,-1,-1,1,-1,-1
-2021-06-13,Pestizidinitiative,-1,1,1,1,0,-1,-1,-1,-1,-1,1,-1
-2021-06-13,PMT,1,-1,-1,1,-1,1,1,1,0,-1,-1,-1
-2021-09-26,Ehe fuer alle,1,1,1,-1,1,1,1,-1,-1,0,1,1
-2021-09-26,99%-Initiative,-1,1,1,1,-1,-1,-1,-1,-1,0,1,-1
-2021-11-28,Pflegeinitiative,1,1,1,1,1,0,-1,-1,-1,1,1,-1
-2021-11-28,Justizinitiative,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,1
-2021-11-28,Covid-19-Gesetz,1,1,1,1,1,1,1,-1,-1,0,1,-1
-2022-02-13,Initiative Tabakwerbeverbot fuer Jugendliche,1,1,1,1,1,-1,-1,-1,1,1,1,-1
-2022-02-13,Massnahmenpaket Medien,-1,1,1,1,1,1,-1,-1,-1,-1,1,-1
-2022-02-13,Stempelabgaben,-1,-1,-1,-1,1,1,1,1,-1,1,-1,1
+Date,Name,Volk,PdA,SP,Gruene,Piraten,EVP,GLP,Mitte,FDP,LP,EDU,SVP
+2020-02-09,Initiative Mehr bezahlbare Wohnungen,-1,1,1,1,0,-1,-1,-1,-1,-1,-1,-1
+2020-02-09,Verbot Diskriminierung wegen sexueller Orientierung,1,1,1,1,1,0,1,1,1,-1,-1,-1
+2020-09-27,Begrenzungsinitiative,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1
+2020-09-27,Jagdgesetz,-1,-1,-1,-1,-1,-1,-1,1,1,0,1,1
+2020-09-27,Kinderbetreuungskosten Bundessteuer,-1,-1,-1,-1,-1,-1,-1,-1,1,0,-1,-1
+2020-09-27,Vaterschaftsurlaub,1,1,1,1,1,1,1,1,-1,-1,-1,-1
+2020-09-27,Kampfjets,1,-1,-1,-1,-1,1,1,1,1,1,1,1
+2020-11-29,Konzernverantwortungsinitiative,-1,1,1,1,1,1,1,-1,-1,-1,1,-1
+2020-11-29,Kriegsgeschaeftsinitiative,-1,1,1,1,1,1,-1,-1,-1,-1,-1,-1
+2021-03-07,Verhuellungsverbot,1,-1,-1,-1,-1,0,-1,-1,-1,-1,1,1
+2021-03-07,Bundesgesetz E-ID,-1,-1,-1,-1,-1,1,-1,1,1,1,-1,1
+2021-03-07,Freihandelsabkommen Indonesien,1,-1,-1,-1,0,-1,1,1,1,1,1,1
+2021-06-13,CO2-Gesetz,-1,-1,1,1,1,1,1,1,1,-1,-1,-1
+2021-06-13,Covid-19-Gesetz,1,1,1,1,1,1,1,1,1,-1,-1,0
+2021-06-13,Trinkwasserinitiative,-1,-1,1,1,1,1,1,-1,-1,-1,-1,-1
+2021-06-13,Pestizidinitiative,-1,1,1,1,-1,1,0,-1,-1,-1,-1,-1
+2021-06-13,PMT,1,-1,-1,-1,-1,1,-1,1,1,-1,0,1
+2021-09-26,Ehe fuer alle,1,1,1,1,0,-1,1,1,1,1,-1,-1
+2021-09-26,99%-Initiative,-1,1,1,1,0,1,-1,-1,-1,-1,-1,-1
+2021-11-28,Pflegeinitiative,1,1,1,1,1,1,1,0,-1,-1,-1,-1
+2021-11-28,Justizinitiative,-1,-1,-1,-1,1,-1,-1,-1,-1,1,-1,-1
+2021-11-28,Covid-19-Gesetz,1,1,1,1,0,1,1,1,1,-1,-1,-1
+2022-02-13,Initiative Tabakwerbeverbot fuer Jugendliche,1,1,1,1,1,1,1,-1,-1,-1,1,-1
+2022-02-13,Massnahmenpaket Medien,-1,1,1,1,-1,1,1,1,-1,-1,-1,-1
+2022-02-13,Stempelabgaben,-1,-1,-1,-1,1,-1,1,1,1,1,-1,1
 2022-02-13,Tier- und Menschenversuchsverbot Initiative,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
