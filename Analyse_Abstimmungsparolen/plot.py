@@ -113,7 +113,7 @@ def radar_factory(num_vars, frame='circle'):
 
 def generatePlot(data, colors):
     name = data[1][0]
-    filename = "img/" + name + ".png"
+    filename = "results/" + name + ".png"
     N = len(data[0])
     theta = radar_factory(N, frame='polygon')
 
