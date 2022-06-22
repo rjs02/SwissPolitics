@@ -173,7 +173,7 @@ def main():
         print("Generating for", parties[i])
         # dont plot score for party with itself (skip i-th party = itself)
         arg = [parties[0:i]+parties[i+1:], (parties[i], [score[i][0:i]+score[i][i+1:]])]
-        generatePlot(arg, colors, "res/", ".svg")
+        generatePlot(arg, colors, "results/", ".svg")
 
 if __name__ == "__main__":
     main()
