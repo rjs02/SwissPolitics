@@ -2,18 +2,18 @@
 Das kleine Programm vergleicht die Abstimmungsempfehlungen (Parolen) der grössten Schweizer Parteien und berechnet einen Score, der zeigen soll, wie einig sich die Parteien sind.
 
 # Resultate
-![Volk](Volk.svg)
-![PdA](PdA.svg)
-![SP](SP.svg)
-![Gruene](Gruene.svg)
-![Piraten](Piraten.svg)
-![EVP](EVP.svg)
-![GLP](GLP.svg)
-![Mitte](Mitte.svg)
-![FDP](FDP.svg)
-![LP](LP.svg)
-![EDU](EDU.svg)
-![SVP](SVP.svg)
+![Volk](results/Volk.svg)
+![PdA](results/PdA.svg)
+![SP](results/SP.svg)
+![Gruene](results/Gruene.svg)
+![Piraten](results/Piraten.svg)
+![EVP](results/EVP.svg)
+![GLP](results/GLP.svg)
+![Mitte](results/Mitte.svg)
+![FDP](results/FDP.svg)
+![LP](results/LP.svg)
+![EDU](results/EDU.svg)
+![SVP](results/SVP.svg)
 
 
 # Wie wird der Score berechnet?
