@@ -16,7 +16,7 @@ $$\text{score}_\vec{v_i}(\vec{v_j}) = \dfrac{1}{2}\left(\dfrac{\langle\vec{v_i},
 Die Daten sind unvollständig für:
 
 * Piratenpartei
-    * Parolen für die Abstimmungen vom 28.09.2020 stammen von der Kantoalsektion beider Basel
+    * Parolen für die Abstimmungen vom 28.09.2020 stammen von der Kantonalsektion beider Basel
     * Parolen fehlen für: 
         * Ehe für alle
         * 99%-Initiative
