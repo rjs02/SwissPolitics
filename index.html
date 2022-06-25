@@ -7,15 +7,31 @@
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <py-env>
+        - numpy
+        - matplotlib
+        - csv
         - paths:
-            - ./Analyse_Abstimmungsparolen/john_doe.txt
+            - ./Analyse_Abstimmungsparolen/abstimmungsparolen.CSV
+            - ./Analyse_Abstimmungsparolen/colors.CSV
+            - ./Analyse_Abstimmungsparolen/plot.py
+            - ./Analyse_Abstimmungsparolen/calculations.py
     </py-env>
 </head>
 <body>
     <h1>Abstimmungsparolen</h1>
     <py-script>
-        with open("john_doe.txt") as file:
-            print(file.read())
+        from calculations import *
+        
+        data, parties = readInput("abstimmungsparolen.CSV")
+        colors = getColors("colors.CSV")
+        print(data)
+        print(colors)
     </py-script>
+    <py-button label="Generiere zufälligen Plot" styles="btn big">
+        def on_click(event):
+            john = np.random.randint(-1,2, len(data))
+            generateOwnSpider("John-Doe", parties, calculateOwnScore(data, john), colors, "results/", ".svg")
+    </py-button>
+    <img src="results/John-Doe.svg" alt="">
 </body>
 </html>
