@@ -35,11 +35,18 @@ def calculateScore(data):
     score = np.matmul(data.T, data).astype(np.float32)
     for i in range(np.shape(score)[0]):
         score[i] /= score[i][i]
-        score[i] += np.ones(np.shape(score[i]))
+        score[i] += 1
         score[i] /= 2
     return score
 
-# code from https://stackoverflow.com/questions/52910187/how-to-make-a-polygon-radar-spider-chart-in-python
+def calculateOwnScore(data, you):
+    """ calculate score for yourself """
+    score = np.dot(data.T, you).astype(np.float32)
+    score /= np.dot(you, you)
+    score += 1
+    score /= 2
+    return score
+
 def radar_factory(num_vars, frame='circle'):
     """Create a radar chart with `num_vars` axes.
 
@@ -53,6 +60,7 @@ def radar_factory(num_vars, frame='circle'):
         Shape of frame surrounding axes.
 
     """
+    # code from https://stackoverflow.com/questions/52910187/how-to-make-a-polygon-radar-spider-chart-in-python
     # calculate evenly-spaced axis angles
     theta = np.linspace(0, 2*np.pi, num_vars, endpoint=False)
     
@@ -163,17 +171,28 @@ def generatePlot(data, colors, path, filetype):
     
     plt.savefig(filename)
 
-def main():
-    data, parties = readInput("abstimmungsparolen.CSV")
-    colors = getColors("colors.CSV")
-    score = calculateScore(data).tolist()
-
-    # generate plots for all parties
+def generateAllSpiders(parties, score, colors, path="", type=".png"):
+    """ generate plots for all parties """
     for i in range(len(score)):
         print("Generating for", parties[i])
         # dont plot score for party with itself (skip i-th party = itself)
         arg = [parties[0:i]+parties[i+1:], (parties[i], [score[i][0:i]+score[i][i+1:]])]
-        generatePlot(arg, colors, "results/", ".svg")
+        generatePlot(arg, colors, path, type)
+
+def generateOwnSpider(name, parties, score, colors, path="", type=".png"):
+    """ generate plot for yourself """
+    arg = [parties, (name, [score])]
+    generatePlot(arg, colors, path, type)
+
+def main():
+    data, parties = readInput("abstimmungsparolen.CSV")
+    colors = getColors("colors.CSV")
+    score = calculateScore(data).tolist()
+    robin = np.fromfile("robin.txt", sep="\n", dtype=int)
+
+    generateAllSpiders(parties, score, colors, "results/", ".svg")
+    generateOwnSpider("Robin", parties, calculateOwnScore(data, robin), colors, "results/", ".svg")
+
 
 if __name__ == "__main__":
     main()
