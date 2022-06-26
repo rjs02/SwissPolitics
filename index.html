@@ -15,23 +15,25 @@
             - Analyse_Abstimmungsparolen/plot.py
             - Analyse_Abstimmungsparolen/calculations.py
     </py-env>
-</head>
-<body>
-    <h1>Abstimmungsparolen</h1>
     <py-script>
         import plot
         import calculations
         import numpy as np
-
+        
         data, parties = calculations.readInput("abstimmungsparolen.CSV")
         colors = calculations.getColors("colors.CSV")
-        score = calculations.calculateScore(data)
-
-        john = np.random.randint(-1,2, len(data))
-        plot = calculations.generateOwnSpider("John Doe", parties, calculations.calculateOwnScore(data, john), colors, "results/", ".svg")
-        plot
-
     </py-script>
+</head>
+<body>
+    <h1>Abstimmungsparolen</h1>
+
+    <input type="text" id="name" name="name"><br>
+    <py-button label="Generate Spider" styles="btn big">
+        def on_click(event):
+            name = Element("name").value
+            you = np.random.randint(-1,2, len(data))
+            calculations.generateOwnSpider(name, parties, calculations.calculateOwnScore(data, you), colors, "results/", ".svg")
+    </py-button>
 
 </body>
 </html>
