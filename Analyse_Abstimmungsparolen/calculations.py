@@ -52,5 +52,6 @@ def generateAllSpiders(parties, score, colors, path="", type=".png"):
 def generateOwnSpider(name, parties, score, colors, path="", type=".png"):
     """ generate plot for yourself """
     arg = [parties, (name, [score])]
-    generatePlot(arg, colors, path, type)
+    plot = generatePlot(arg, colors, path, type)
+    return plot
     

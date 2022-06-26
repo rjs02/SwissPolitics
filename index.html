@@ -8,25 +8,28 @@
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <py-env>
         - numpy
+        - matplotlib
         - paths:
             - Analyse_Abstimmungsparolen/abstimmungsparolen.CSV
             - Analyse_Abstimmungsparolen/colors.CSV
-            - Analyse_Abstimmungsparolen/web.py
+            - Analyse_Abstimmungsparolen/plot.py
+            - Analyse_Abstimmungsparolen/calculations.py
     </py-env>
 </head>
 <body>
     <h1>Abstimmungsparolen</h1>
     <py-script>
-        import web
-        import csv
-        import numpy as np
+        import plot
+        import calculations
 
-        data, parties = web.readInput("abstimmungsparolen.CSV")
-        colors = web.getColors("colors.CSV")
-        score = web.calculateScore(data)
-        print(score)
-        print(parties)
-        print(colors)
+        data, parties = calculations.readInput("abstimmungsparolen.CSV")
+        colors = calculations.getColors("colors.CSV")
+        score = calculations.calculateScore(data)
+
+        test = np.random.randint(-1,2, len(data))
+        plot = calculations.generateOwnSpider("John Doe", parties, calculateOwnScore(data, john), colors, "results/", ".svg")
+        plot
+
     </py-script>
 
 </body>

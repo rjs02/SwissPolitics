@@ -7,7 +7,6 @@ from matplotlib.projections import register_projection
 from matplotlib.spines import Spine
 from matplotlib.transforms import Affine2D
 
-
 def radar_factory(num_vars, frame='circle'):
     """Create a radar chart with `num_vars` axes.
 
@@ -130,4 +129,5 @@ def generatePlot(data, colors, path, filetype):
         ax.fill(theta, d,  alpha=0.4, color=col)
     ax.set_varlabels(spoke_labels)
     
-    plt.savefig(filename)
+    # plt.savefig(filename)
+    return plt
