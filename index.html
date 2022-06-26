@@ -16,12 +16,7 @@
             - Analyse_Abstimmungsparolen/calculations.py
     </py-env>
     <py-script>
-        import plot
-        import calculations
-        import numpy as np
         
-        data, parties = calculations.readInput("abstimmungsparolen.CSV")
-        colors = calculations.getColors("colors.CSV")
     </py-script>
 </head>
 <body>
@@ -33,9 +28,15 @@
     <button type="button" id="button">Generate Spider</button>
     <p>(if vote data is emtpy, a random smart spider will be generated)</p>
     <py-script>
+        import plot
+        import calculations
+        import numpy as np
         from js import document
         from pyodide import create_proxy
 
+        data, parties = calculations.readInput("abstimmungsparolen.CSV")
+        colors = calculations.getColors("colors.CSV")
+        
         def run():
             name = Element("name").value
             own_vote = Element("own_vote").value
@@ -46,7 +47,10 @@
 
             calculations.generateOwnSpider(name, parties, calculations.calculateOwnScore(data, you), colors, "results/", ".svg")
         
-        function_proxy = create_proxy(run)
+        def test():
+            print("test")
+        
+        function_proxy = create_proxy(test)
         document.getElementById("button").addEventListener("click", function_proxy)
     </py-script>
 
