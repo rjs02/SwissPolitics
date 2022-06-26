@@ -26,14 +26,29 @@
 </head>
 <body>
     <h1>Abstimmungsparolen</h1>
-
+    <h4>Your name:</h4>
     <input type="text" id="name" name="name"><br>
-    <py-button label="Generate Spider" styles="btn big">
-        def on_click(event):
+    <h4>How you voted:</h4>
+    <input type="text" id="own_vote" name="own_vote"><br>
+    <button type="button" id="button">Generate Spider</button>
+    <p>(if vote data is emtpy, a random smart spider will be generated)</p>
+    <py-script>
+        from js import document
+        from pyodide import create_proxy
+
+        def run():
             name = Element("name").value
-            you = np.random.randint(-1,2, len(data))
+            own_vote = Element("own_vote").value
+            if own_vote != "":
+                you = np.random.randint(-1,2, len(data))
+            else:
+                you = np.fromstring(own_vote, dtype=int, sep=",")
+
             calculations.generateOwnSpider(name, parties, calculations.calculateOwnScore(data, you), colors, "results/", ".svg")
-    </py-button>
+        
+        function_proxy = create_proxy(run)
+        document.getElementById("button").addEventListener("click", function_proxy)
+    </py-script>
 
 </body>
 </html>
