@@ -39,7 +39,7 @@
         def run():
             name = Element("name").value
             own_vote = Element("own_vote").value
-            if own_vote != "":
+            if own_vote == "":
                 you = np.random.randint(-1,2, len(data))
             else:
                 you = np.fromstring(own_vote, dtype=int, sep=",")
