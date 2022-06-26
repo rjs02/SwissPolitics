@@ -30,9 +30,6 @@
         import numpy as np
         from js import document
         from pyodide import create_proxy
-
-        data, parties = calculations.readInput("abstimmungsparolen.CSV")
-        colors = calculations.getColors("colors.CSV")
         
         def run(*args):
             pyscript.write("button1", "you clicked me")
@@ -42,7 +39,9 @@
                 you = np.random.randint(-1,2, len(data))
             else:
                 you = np.fromstring(own_vote, dtype=int, sep=",")
-
+            print(f"Hi, {name}. This is your data: {you}")
+            data, parties = calculations.readInput("abstimmungsparolen.CSV")
+            colors = calculations.getColors("colors.CSV")
             plot = calculations.generateOwnSpider(name, parties, calculations.calculateOwnScore(data, you), colors, "results/", ".svg")
             plot
 
