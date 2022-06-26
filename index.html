@@ -8,12 +8,10 @@
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <py-env>
         - numpy
-        - matplotlib
         - csv
         - paths:
             - ./Analyse_Abstimmungsparolen/abstimmungsparolen.CSV
             - ./Analyse_Abstimmungsparolen/colors.CSV
-            - ./Analyse_Abstimmungsparolen/plot.py
             - ./Analyse_Abstimmungsparolen/calculations.py
     </py-env>
 </head>
@@ -21,7 +19,9 @@
     <h1>Abstimmungsparolen</h1>
     <py-script>
         from calculations import *
-        
+        import numpy as np
+        import csv
+
         data, parties = readInput("abstimmungsparolen.CSV")
         colors = getColors("colors.CSV")
         score = calculateScore(data)
