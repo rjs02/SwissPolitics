@@ -24,6 +24,10 @@
     <input type="text" id="own_vote" name="own_vote"><br>
     <button type="button" id="button1" pys-onClick="run">Generate Spider</button>
     <p>(if vote data is emtpy, a random smart spider will be generated)</p>
+    <div id="test-output"></div>
+    <div id="test-output2"></div>
+    <div id="test-output3"></div>
+
     <py-script>
         import plot
         import calculations
@@ -33,16 +37,19 @@
         
         def run(*args):
             pyscript.write("button1", "you clicked me")
-            print("clicked")
             name = Element("name").element.value
-            own_vote = Element("own_vote").element.value
-            if own_vote == "":
-                you = np.random.randint(-1,2, len(data))
-            else:
-                you = np.fromstring(own_vote, dtype=int, sep=",")
+            print(name)
+            #own_vote = Element("own_vote").element.value
+            #if own_vote == "":
+            you = np.random.randint(-1,2, len(data))
+            #else:
+            #    you = np.fromstring(own_vote, dtype=int, sep=",")
             print(f"Hi, {name}. This is your data: {you}")
+            Element('test-output').element.innerText = f"Hi, {name}. This is your data: {you}"
             data, parties = calculations.readInput("abstimmungsparolen.CSV")
             colors = calculations.getColors("colors.CSV")
+            Element('test-output2').element.innerText = data
+            Element('test-output3').element.innerText = colors
             plot = calculations.generateOwnSpider(name, parties, calculations.calculateOwnScore(data, you), colors, "results/", ".svg")
             plot
 
