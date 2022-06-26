@@ -12,19 +12,17 @@
         - paths:
             - ./Analyse_Abstimmungsparolen/abstimmungsparolen.CSV
             - ./Analyse_Abstimmungsparolen/colors.CSV
-            - ./Analyse_Abstimmungsparolen/calculations.py
+            - ./Analyse_Abstimmungsparolen/web.py
     </py-env>
 </head>
 <body>
     <h1>Abstimmungsparolen</h1>
     <py-script>
-        from calculations import *
-        import numpy as np
-        import csv
+        import Analyse_Abstimmungsparolen.web as web
 
-        data, parties = readInput("abstimmungsparolen.CSV")
-        colors = getColors("colors.CSV")
-        score = calculateScore(data)
+        data, parties = web.readInput("Analyse_Abstimmungsparolen/abstimmungsparolen.CSV")
+        colors = web.getColors("Analyse_Abstimmungsparolen/colors.CSV")
+        score = web.calculateScore(data)
         print(score)
         print(parties)
         print(colors)
