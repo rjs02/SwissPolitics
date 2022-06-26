@@ -9,15 +9,15 @@
     <py-env>
         - numpy
         - paths:
-            - ./Analyse_Abstimmungsparolen/abstimmungsparolen.CSV
-            - ./Analyse_Abstimmungsparolen/colors.CSV
-            - ./Analyse_Abstimmungsparolen/web.py
+            - Analyse_Abstimmungsparolen/abstimmungsparolen.CSV
+            - Analyse_Abstimmungsparolen/colors.CSV
+            - Analyse_Abstimmungsparolen/web.py
     </py-env>
 </head>
 <body>
     <h1>Abstimmungsparolen</h1>
     <py-script>
-        import Analyse_Abstimmungsparolen.web as web
+        import web
         import csv
         import numpy as np
 
