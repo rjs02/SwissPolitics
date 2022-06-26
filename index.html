@@ -33,8 +33,9 @@
         
         def run(*args):
             pyscript.write("button1", "you clicked me")
-            name = Element("name").value
-            own_vote = Element("own_vote").value
+            print("clicked")
+            name = Element("name").element.value
+            own_vote = Element("own_vote").element.value
             if own_vote == "":
                 you = np.random.randint(-1,2, len(data))
             else:
