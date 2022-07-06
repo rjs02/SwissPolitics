@@ -31,7 +31,7 @@ def calculateScore(data):
         score[i] /= score[i][i]
         score[i] += 1
         score[i] /= 2
-    return score
+    return score.tolist()
 
 def calculateOwnScore(data, you):
     """ calculate score for yourself """
@@ -47,11 +47,12 @@ def generateAllSpiders(parties, score, colors, path="", type=".png"):
         # print("Generating for", parties[i])
         # dont plot score for party with itself (skip i-th party = itself)
         arg = [parties[0:i]+parties[i+1:], (parties[i], [score[i][0:i]+score[i][i+1:]])]
-        generatePlot(arg, colors, path, type)
+        col = colors.get(parties[i], "#878784") # default color (some gray shade) if not in colors
+        generatePlot(arg, col, path, type)
 
-def generateOwnSpider(name, parties, score, colors, path="", type=".png"):
+def generateOwnSpider(name, parties, score, color, path="", type=".png"):
     """ generate plot for yourself """
     arg = [parties, (name, [score])]
-    plot = generatePlot(arg, colors, path, type)
+    plot = generatePlot(arg, color, path, type)
     return plot
     

@@ -107,7 +107,7 @@ def radar_factory(num_vars, frame='circle'):
     register_projection(RadarAxes)
     return theta
 
-def generatePlot(data, colors, path, filetype):
+def generatePlot(data, col, path, filetype):
     name = data[1][0]
     filename = path + name + filetype
     N = len(data[0])
@@ -124,10 +124,8 @@ def generatePlot(data, colors, path, filetype):
     ax.set_title(title,  position=(0.5, 1.1), ha='center')
 
     for d in case_data:
-        col = colors.get(name, "#878784") # default color (some gray shade) if not in colors
         line = ax.plot(theta, d, color=col)
         ax.fill(theta, d,  alpha=0.4, color=col)
     ax.set_varlabels(spoke_labels)
     
-    # plt.savefig(filename)
-    return plt
+    plt.savefig(filename)
