@@ -19,7 +19,7 @@ Das kleine Programm vergleicht die Abstimmungsempfehlungen (Parolen) der grösst
 # Wie wird der Score berechnet?
 Die Abstimmungsparolen der Parteien für die einzelnen Abstimmungen sind wie folgt encodiert: 1 = Ja, -1 = Nein, 0 = Stimmfreigabe. 
 
-Pro Partei ergibt sich so für alle $n$ Abstimmungen je ein Vektor $\vec{v_i} \in \{-1, 0, 1\}^n$. Der Score von zwei Parteien ist die Länge des Vektor, der aus der Orthogonalprojektion der beiden Vektoren resultiert, transformiert ins Intervall $[0,1]$. Die Formel dafür lautet:
+Pro Partei ergibt sich so für alle $n$ Abstimmungen je ein Vektor $\vec{v_i} \in \set{-1, 0, 1}^n$. Der Score von zwei Parteien ist die Länge des Vektor, der aus der Orthogonalprojektion der beiden Vektoren resultiert, transformiert ins Intervall $[0,1]$. Die Formel dafür lautet:
 
 $$\text{score}_\vec{v_i}(\vec{v_j}) = \dfrac{1}{2}\left(\dfrac{\langle\vec{v_i},\vec{v_j}\rangle}{\langle\vec{v_i},\vec{v_i}\rangle}+1\right)$$
 
@@ -34,3 +34,5 @@ Die Daten sind unvollständig für:
         * 99%-Initiative
         * Freihandelsabkommen Indonesien
         * Initiative "Mehr bezahlbare Wohnungen"
+* Die Mitte
+    * Parolen vor der Fusion beziehen sich auf jene der ehem. CVP, da sie deutlich mitgliederstärker war als die ehem. BDP.
