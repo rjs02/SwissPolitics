@@ -34,5 +34,8 @@ Die Daten sind unvollständig für:
         * 99%-Initiative
         * Freihandelsabkommen Indonesien
         * Initiative "Mehr bezahlbare Wohnungen"
+        * OECD-Mindeststeuer
+        * Klimaschutzgesetz
+        * Covid-19-Gesetz (Referendum wurde aber unterstützt)
 * Die Mitte
     * Parolen vor der Fusion beziehen sich auf jene der ehem. CVP, da sie deutlich mitgliederstärker war als die ehem. BDP.
